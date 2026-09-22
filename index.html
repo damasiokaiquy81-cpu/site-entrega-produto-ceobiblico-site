@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CEOBiblico.ai — Obrigado pela compra</title>
+  <meta name="description" content="Baixe o CEOBiblico.ai no seu computador.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#121214">
+  <link rel="icon" href="assets/favicon.png">
+  <style>
+    /* Mesma fonte e cores do app (Inter embutida — licença em assets/OFL.txt) */
+    @font-face {
+      font-family: "Inter";
+      src: url("assets/inter.woff2") format("woff2");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: dark;
+      --bg: #121214;
+      --surface: #19191c;
+      --surface-2: #212125;
+      --border: #2a2a2f;
+      --border-2: #3a3a41;
+      --text: #ededef;
+      --muted: #8d8d95;
+      --gold: #c9a55a;
+      --gold-2: #e3c585;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.55;
+      letter-spacing: -0.006em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page { max-width: 640px; margin: 0 auto; padding: 56px 16px 40px; text-align: center; }
+
+    .logo { width: 96px; height: 96px; border-radius: 50%; box-shadow: 0 12px 34px rgba(0, 0, 0, .5); }
+    .brand { margin: 14px 0 0; font-weight: 700; font-size: 15px; }
+    .brand span { display: block; color: var(--muted); font-weight: 400; font-size: 12.5px; }
+
+    h1 { font-size: clamp(26px, 6vw, 34px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.2; margin: 30px 0 10px; }
+    h1 em { font-style: normal; color: var(--gold); }
+    .lead { color: var(--muted); margin: 0 auto; max-width: 460px; }
+
+    .pc-note {
+      display: flex; gap: 12px; align-items: flex-start; text-align: left;
+      margin: 28px 0 0; padding: 14px 16px; border-radius: 12px;
+      border: 1px solid #4a4538; background: linear-gradient(180deg, #1f1d17, #19191c);
+    }
+    .pc-note strong { color: var(--gold-2); display: block; font-size: 14.5px; }
+    .pc-note p { margin: 2px 0 0; color: var(--muted); font-size: 13.5px; }
+
+    .icon { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .pc-note .icon { width: 22px; height: 22px; color: var(--gold); margin-top: 1px; }
+
+    .actions { display: grid; gap: 10px; margin: 22px 0 0; }
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      border: 1px solid var(--border-2); background: var(--surface-2); color: var(--text);
+      border-radius: 10px; padding: 14px 18px; font-weight: 600; font-size: 15.5px;
+      text-decoration: none; cursor: pointer; transition: border-color .15s, background .15s;
+    }
+    .btn:hover { border-color: #5a5a62; background: #27272c; }
+    .btn.primary { background: var(--gold); border-color: var(--gold); color: #17160f; }
+    .btn.primary:hover { background: var(--gold-2); border-color: var(--gold-2); }
+    .btn small { font-weight: 500; opacity: .7; font-size: 12.5px; }
+    .actions .hint { color: var(--muted); font-size: 12.5px; margin: 2px 0 0; }
+
+    /* No celular o Drive vira o botão principal */
+    body.mobile .actions .dl { order: 2; background: var(--surface-2); border-color: var(--border-2); color: var(--text); }
+    body.mobile .actions .drive { order: 1; background: var(--gold); border-color: var(--gold); color: #17160f; }
+    body.mobile .actions .hint { order: 3; }
+
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      padding: 20px; margin: 34px 0 0; text-align: left;
+    }
+    .card h2 { margin: 0 0 14px; font-size: 16px; font-weight: 700; letter-spacing: -0.015em; }
+    .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+    .steps li { display: flex; gap: 12px; }
+    .num {
+      flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--surface-2); border: 1px solid var(--border-2); color: var(--gold); font-weight: 700; font-size: 13px;
+    }
+    .steps b { display: block; font-size: 14.5px; }
+    .steps p { margin: 1px 0 0; color: var(--muted); font-size: 13.5px; }
+    .steps code { font-family: Consolas, "Cascadia Mono", monospace; color: var(--text); font-size: 12.5px; overflow-wrap: anywhere; }
+
+    .trust {
+      display: flex; gap: 12px; align-items: flex-start; text-align: left; margin: 12px 0 0;
+      padding: 14px 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface);
+      color: var(--text); text-decoration: none; transition: border-color .15s;
+    }
+    .trust:hover { border-color: var(--border-2); }
+    .trust .icon { width: 22px; height: 22px; color: var(--gold); margin-top: 1px; }
+    .trust b { display: block; font-size: 14px; }
+    .trust p { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+    .trust .more { color: var(--gold); white-space: nowrap; }
+
+    .shot { margin: 34px 0 0; }
+    .shot img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0, 0, 0, .45); }
+    .shot figcaption { color: var(--muted); font-size: 12.5px; margin-top: 10px; }
+
+    .verse { font-family: var(--serif); font-size: 15.5px; line-height: 1.6; margin: 40px auto 0; max-width: 480px; }
+    .ref { color: var(--gold); font-weight: 600; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; margin-top: 6px; }
+
+    footer { color: var(--muted); font-size: 12px; margin-top: 44px; }
+    footer p { margin: 0 0 4px; }
+    footer a { color: var(--muted); text-decoration: underline; text-decoration-color: #55555c; text-underline-offset: 3px; }
+    footer a:hover { color: var(--gold-2); text-decoration-color: currentColor; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <img class="logo" src="assets/logo.png" alt="CEOBiblico.ai">
+    <p class="brand">CEOBiblico.ai <span>Versículo do Dia</span></p>
+
+    <h1>Obrigado pela compra! <em>🙏</em></h1>
+    <p class="lead">Seu CEOBiblico.ai já está liberado. É só baixar, instalar e ativar com a chave de acesso que você recebeu.</p>
+
+    <div class="pc-note">
+      <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+      <div>
+        <strong>Abra esta página no computador</strong>
+        <p id="pcText">O CEOBiblico.ai é um programa para computador com Windows. Baixe e instale por aqui mesmo.</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <!-- Instalador: troque o href se hospedar o arquivo em outro lugar -->
+      <a class="btn primary dl" href="download/CEOBiblico.ai-Instalador.exe" download>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+        Baixar para Windows <small>· 93 MB</small>
+      </a>
+      <a class="btn drive" href="https://drive.google.com/drive/folders/1Wi37UIfSV3o1fAyFZPJ6IH2T1dhKihSL?usp=drive_link" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M8 3h8l6 10-4 7H6l-4-7z"/><path d="M8 3l6 10h8M2 13l6-10M6 20l6-7"/></svg>
+        Abrir no Drive
+      </a>
+      <p class="hint">Está no celular? Abra o Drive e acesse mais tarde pelo computador.</p>
+    </div>
+
+    <section class="card">
+      <h2>Como instalar</h2>
+      <ol class="steps">
+        <li><span class="num">1</span><div><b>Baixe o instalador</b><p>Clique em “Baixar para Windows”. O arquivo <code>CEOBiblico.ai-Instalador.exe</code> vai para a pasta Downloads.</p></div></li>
+        <li><span class="num">2</span><div><b>Abra o arquivo</b><p>Se o Windows mostrar “O Windows protegeu o computador”, clique em <b style="display:inline">Mais informações</b> e depois em <b style="display:inline">Executar assim mesmo</b>. A instalação é automática.</p></div></li>
+        <li><span class="num">3</span><div><b>Ative com sua chave</b><p>Digite a chave de acesso que você recebeu na compra (<code>CEOB-XXXX-XXXX-XXXX-XXXX</code>). Pronto — todo dia chega um versículo pra você.</p></div></li>
+      </ol>
+    </section>
+
+    <a class="trust" href="https://www.virustotal.com/gui/file/2d528ededd7f13e7552ed900368716ce9eca0d355ad9f387b3d74b8a16c3cd8d/detection" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+      <div>
+        <b>Instalador verificado pelo VirusTotal</b>
+        <p>Plataforma de segurança do Google, criada em 2004 e usada por empresas e governos no mundo todo. <span class="more">Ver verificação ›</span></p>
+      </div>
+    </a>
+
+    <figure class="shot">
+      <img src="assets/print-app.png" alt="Tela do versículo do dia no CEOBiblico.ai" width="1200" height="820" loading="lazy">
+      <figcaption>O versículo do dia, com estudo no ChatGPT em um clique.</figcaption>
+    </figure>
+
+    <p class="verse">“Tua palavra é lâmpada para meus pés e luz para meu caminho.”</p>
+    <p class="ref">Salmos 119:105</p>
+
+    <footer>
+      <p>Texto bíblico: <a href="https://sites.google.com/site/biblialivre/" target="_blank" rel="noopener">Bíblia Livre</a> (CC BY 3.0 BR)</p>
+      <p>© 2026 CEOBiblico.ai</p>
+    </footer>
+  </main>
+
+  <script>
+    // Celular/tablet: destaca o botão do Drive e ajusta o aviso
+    var mobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) ||
+      (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent));
+    if (mobile) {
+      document.body.classList.add('mobile');
+      document.getElementById('pcText').textContent =
+        'O CEOBiblico.ai é um programa para computador com Windows. Abra o Drive e acesse mais tarde pelo computador.';
+    }
+  </script>
+</body>
+</html>
